@@ -20,6 +20,7 @@ is.installed("reshape2")
 is.installed("lattice")
 is.installed("plyr")
 is.installed("scatterplot3d")
+is.installed("shinythemes")
 #is.installed.github("shiny-incubator", "rstudio")
 
 ## Run shiny 
