@@ -25,10 +25,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                   
                   
                   
-                  p("**If you have any question about this R shiny app, Please contact",a("Tongwu Zhang",href="mailto:xtmgah@gmail.com")),
-                  p("Please cite our paper:",strong("\"Drug-Drug Combination Visualization (DDCV): Evaluation of Drug-Drug Interactions using Shiny by RStudio\""),"when pulishing results analyzed by this shiny app"),
-                  p("DDCV version: 4.0"),
-                  
+                  p("**If you have any question about this R shiny app, Please contact",a("Md. Rezaul Karim",href="mailto:rezaul.karim.fit@gmail.com")),           
                   
                   tags$hr(),
                   
