@@ -20,7 +20,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                     
                   ),
                   
-                  titlePanel("The Evaluation of Drug-Drug Combination Therapy Effect"),
+                  titlePanel("Drug-Drug Combination Therapy Effect"),
                   tags$hr(),
                   
                   
