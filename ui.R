@@ -254,7 +254,9 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          br(),
                                          
                                          p(strong("References:")),
-                                         p("Md. Rezaul Karim, Michael Cochez, João Bosco Jares, Mamtaz Uddin, Oya Beyan, and Stefan Decker, Drug-Drug Interaction Prediction Based on Knowledge Graph Embeddings and Convolutional-LSTM Network, Proc. of ACM International Conference on Bioinformatics, Computational Biology, and Health-informatics (ACM-BCB'2019), Niagara Falls, New York, USA, September 7-10, 2019")
+                                         p("Md. Rezaul Karim, Michael Cochez, João Bosco Jares, Mamtaz Uddin, Oya Beyan, and Stefan Decker, Drug-Drug Interaction 
+                                            Prediction Based on Knowledge Graph Embeddings and Convolutional-LSTM Network, Proc. of ACM International Conference 
+                                            on Bioinformatics, Computational Biology, and Health-informatics (ACM-BCB 2019), Niagara Falls, New York, USA, September 7-10, 2019"),
                                          p("Bijnsdorp, I. V., Giovannetti, E. & Peters, G. J. in Cancer Cell Culture 731, 421–434 (Humana Press, 2011)."),
                                          p("Chou, T.-C. Drug combination studies and their synergy quantification using the Chou-Talalay method. Cancer Res 70, 440–446 (2010)."),
                                          p("Tan, X. et al. Systematic identification of synergistic drug pairs targeting HIV. Nature Biotechnology 30, 1125–1130 (2012)."),
