@@ -102,7 +102,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  br(),
                                 
                                  tags$hr(),
-                                 p("Written and designed by Tongwu Zhang, using ",a("Shiny",href="http://shiny.rstudio.com"),"from",a("RStudio",href="http://www.rstudio.com"),"(2015).")
+                                 p("Developed by Md. Rezaul Karim based on Drug-Drug Combination Visualization (DDCV): Evaluation of Drug-Drug Interactions by Tongwu Zhang")
                                  
                     ),
                     
@@ -128,9 +128,9 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          
                                          
                                          p("Note:"),
-                                         tags$li(p("This app is freely deployed and hosted on ", a("Shinyapps.io",href="http://www.shinyapps.io"),"website. If Something unexpected happened, Please refresh your browser or download this software from GitHub: ",a("https://github.com/xtmgah/DDCV",href="https://github.com/xtmgah/DDCV"))),
+                                         #tags$li(p("This app is freely deployed and hosted on ", a("Shinyapps.io",href="http://www.shinyapps.io"),"website. If Something unexpected happened, Please refresh your browser or download this software from GitHub: ",a("https://github.com/xtmgah/DDCV",href="https://github.com/xtmgah/DDCV"))),
                                          tags$li(p("Auto loading example data is from the combination of TMZ and AZD7762 in the UACC3337 melanoma cell line")),
-                                         tags$li(p("All supplemental data described in the manuscript is avaiable for download here:",downloadLink("downloadData","Download"))),
+                                         #tags$li(p("All supplemental data described in the manuscript is avaiable for download here:",downloadLink("downloadData","Download"))),
                                          
                                          
                                          tags$hr(),
@@ -254,7 +254,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          br(),
                                          
                                          p(strong("References:")),
-                                         
+                                         p("Md. Rezaul Karim, Michael Cochez, João Bosco Jares, Mamtaz Uddin, Oya Beyan, and Stefan Decker, Drug-Drug Interaction Prediction Based on Knowledge Graph Embeddings and Convolutional-LSTM Network, Proc. of ACM International Conference on Bioinformatics, Computational Biology, and Health-informatics (ACM-BCB'2019), Niagara Falls, New York, USA, September 7-10, 2019")
                                          p("Bijnsdorp, I. V., Giovannetti, E. & Peters, G. J. in Cancer Cell Culture 731, 421–434 (Humana Press, 2011)."),
                                          p("Chou, T.-C. Drug combination studies and their synergy quantification using the Chou-Talalay method. Cancer Res 70, 440–446 (2010)."),
                                          p("Tan, X. et al. Systematic identification of synergistic drug pairs targeting HIV. Nature Biotechnology 30, 1125–1130 (2012)."),
@@ -288,6 +288,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          br(),
                                          br(),
                                          p(strong("References:")),
+                                         p("Md. Rezaul Karim, Michael Cochez, João Bosco Jares, Mamtaz Uddin, Oya Beyan, and Stefan Decker, Drug-Drug Interaction Prediction Based on Knowledge Graph Embeddings and Convolutional-LSTM Network, Proc. of ACM International Conference on Bioinformatics, Computational Biology, and Health-informatics (ACM-BCB'2019), Niagara Falls, New York, USA, September 7-10, 2019"),
                                          p("Zhao, L., Au, J. L.-S. & Wientjes, M. G. Comparison of methods for evaluating drug-drug interaction. Front Biosci (Elite Ed) 2, 241–249 (2010)."),
                                          p("Zhao, L., Wientjes, M. G. & Au, J. L.-S. Evaluation of Combination Chemotherapy Integration of Nonlinear Regression, Curve Shift, Isobologram, and Combination Index Analyses. Clin Cancer Res 10, 7994–8004 (2004)."),
                                          p("Brents, L. K., Zimmerman, S. M., Saffell, A. R., Prather, P. L. & Fantegrossi, W. E. Differential Drug-Drug Interactions of the Synthetic Cannabinoids JWH-018 and JWH-073: Implications for Drug Abuse Liability and Pain Therapy. J Pharmacol Exp Ther 346, 350–361 (2013)."),
