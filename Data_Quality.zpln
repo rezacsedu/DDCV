@@ -1,0 +1,305 @@
+{
+  "paragraphs": [
+    {
+      "title": "Version Info",
+      "text": "println(\"spark: \"+sc.version)\nprintln(\"hadoop: \"+org.apache.hadoop.util.VersionInfo.getVersion())\nprintln(\"scala: \"+util.Properties.versionNumberString)\nprintln(\"java: \"+util.Properties.javaVersion)",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-10 20:26:32.611",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "spark: 2.3.1\nhadoop: 2.8.0\nscala: 2.11.8\njava: 1.8.0_131\n"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594411897134_-1998821087",
+      "id": "20200709-224125_1853623261",
+      "dateCreated": "2020-07-10 20:11:37.134",
+      "dateStarted": "2020-07-10 20:26:30.730",
+      "dateFinished": "2020-07-10 20:26:30.951",
+      "status": "FINISHED"
+    },
+    {
+      "title": " RDF Statistic Example",
+      "text": "import net.sansa_stack.rdf.spark.io._\nimport org.apache.jena.riot.Lang\nimport net.sansa_stack.rdf.spark.stats._\n\nval input \u003d \"hdfs://namenode:8020/data/rdf.nt\"\nval lang \u003d Lang.NTRIPLES\n\nval triples \u003d spark.rdf(lang)(input)\n\nval propertyDist \u003d triples.statsPropertyUsage()\n\nval sortedValues \u003d propertyDist.sortBy(_._2, false).take(100).\n                   map(f \u003d\u003e f._1.getLocalName+ \"\\t\" + f._2)\n\nprintln(\"%table Property Distribution\\tFrequency\\n \" + sortedValues.mkString(\"\\n\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-10 20:48:10.481",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Property Distribution": "string",
+                      "Frequency": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "1": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Property Distribution\tFrequency\n author\t25\nsource\t18\ndescription\t17\ndate\t11\npermission\t4\nfr\t3\nde\t3\nversion\t2\nes\t2\nen\t2\ninfluenced\t2\notherVersions\t2\neo\t2\ndeathPlace\t2\ngivenName\t2\ninline\t1\nyear\t1\nhidetitle\t1\nwikidata\t1\ngallery\t1\nwidth\t1\nmk\t1\nsv\t1\nartist\t1\nimport net.sansa_stack.rdf.spark.io._\nimport org.apache.jena.riot.Lang\nimport net.sansa_stack.rdf.spark.stats._\n\u001b[1m\u001b[34minput\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d hdfs://namenode:8020/data/rdf.nt\n\u001b[1m\u001b[34mlang\u001b[0m: \u001b[1m\u001b[32morg.apache.jena.riot.Lang\u001b[0m \u003d Lang:N-Triples\n\u001b[1m\u001b[34mtriples\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]\u001b[0m \u003d MapPartitionsRDD[25] at mapPartitions at NTripleReader.scala:140\n\u001b[1m\u001b[34mpropertyDist\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(org.apache.jena.graph.Node, Int)]\u001b[0m \u003d ShuffledRDD[28] at reduceByKey at RDFStatistics.scala:479\n\u001b[1m\u001b[34msortedValues\u001b[0m: \u001b[1m\u001b[32mArray[String]\u001b[0m \u003d Array(author\t25, source\t18, description\t17, date\t11, permission\t4, fr\t3, de\t3, version\t2, es\t2, en\t2, influenced\t2, otherVersions\t2, eo\t2, deathPlace\t2, givenName..."
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594411897135_1000887181",
+      "id": "20170731-101340_79632211",
+      "dateCreated": "2020-07-10 20:11:37.135",
+      "dateStarted": "2020-07-10 20:26:42.317",
+      "dateFinished": "2020-07-10 20:26:52.738",
+      "status": "FINISHED"
+    },
+    {
+      "title": "RDF Quality Assessment Example",
+      "text": "import org.apache.jena.riot.Lang\nimport net.sansa_stack.rdf.spark.qualityassessment._\nimport net.sansa_stack.rdf.spark.io._\n\nval input \u003d \"hdfs://namenode:8020/data/rdf.nt\"\nval lang \u003d Lang.NTRIPLES\nval triples \u003d spark.rdf(lang)(input)\n\n// compute  quality assessment\nval completeness_schema \u003d triples.assessSchemaCompleteness()\nval completeness_interlinking \u003d triples.assessInterlinkingCompleteness()\nval completeness_property \u003d triples.assessPropertyCompleteness()\n\nval syntacticvalidity_literalnumeric \u003d triples.assessLiteralNumericRangeChecker()\nval syntacticvalidity_XSDDatatypeCompatibleLiterals \u003d triples.assessXSDDatatypeCompatibleLiterals()\n\nval availability_DereferenceableUris \u003d triples.assessDereferenceableUris()\n\nval relevancy_CoverageDetail \u003d triples.assessCoverageDetail()\nval relevancy_CoverageScope \u003d triples.assessCoverageScope()\nval relevancy_AmountOfTriples \u003d triples.assessAmountOfTriples()\n\nval performance_NoHashURIs \u003d triples.assessNoHashUris()\nval understandability_LabeledResources \u003d triples.assessLabeledResources()\n\nval AssessQualityStr \u003d s\"\"\"%table\nmetric\\tvalue\ncompleteness_schema\\t$completeness_schema\ncompleteness_interlinking\\t$completeness_interlinking \ncompleteness_property\\t$completeness_property\nsyntacticvalidity_literalnumeric\\t$syntacticvalidity_literalnumeric \nsyntacticvalidity_XSDDatatypeCompatibleLiterals\\t$syntacticvalidity_XSDDatatypeCompatibleLiterals\navailability_DereferenceableUris\\t$availability_DereferenceableUris\nrelevancy_CoverageDetail\\t$relevancy_CoverageDetail\nrelevancy_CoverageScope\\t$relevancy_CoverageScope\nrelevancy_AmountOfTriples\\t$relevancy_AmountOfTriples\nperformance_NoHashURIs\\t$performance_NoHashURIs\nunderstandability_LabeledResources\\t$understandability_LabeledResources  \n\"\"\"\n\nz.show(AssessQualityStr)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-10 20:26:46.084",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "metric": "string",
+                      "value": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "ZeppelinContext doesn\u0027t support to show type: java.lang.String\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "metric\tvalue\ncompleteness_schema\t0.0\ncompleteness_interlinking\t0 \ncompleteness_property\t0\nsyntacticvalidity_literalnumeric\t0 \nsyntacticvalidity_XSDDatatypeCompatibleLiterals\t80\navailability_DereferenceableUris\t0.1320754716981132\nrelevancy_CoverageDetail\t0.22641509433962265\nrelevancy_CoverageScope\t0.0\nrelevancy_AmountOfTriples\t0.0\nperformance_NoHashURIs\t0.0\nunderstandability_LabeledResources\t0.0  \nimport org.apache.jena.riot.Lang\nimport net.sansa_stack.rdf.spark.qualityassessment._\nimport net.sansa_stack.rdf.spark.io._\n\u001b[1m\u001b[34minput\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m \u003d hdfs://namenode:8020/data/rdf.nt\n\u001b[1m\u001b[34mlang\u001b[0m: \u001b[1m\u001b[32morg.apache.jena.riot.Lang\u001b[0m \u003d Lang:N-Triples\n\u001b[1m\u001b[34mtriples\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]\u001b[0m \u003d MapPartitionsRDD[36] at mapPartitions at NTripleReader.scala:140\n\u001b[1m\u001b[34mcompleteness_schema\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m \u003d 0.0\n\u001b[1m\u001b[34mcompleteness_interlinking\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 0\n\u001b[1m\u001b[34mcompleteness_property\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 0\n\u001b[1m\u001b[34msyntacticvalidity_literalnumeric\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 0\n\u001b[1m\u001b[34msyntacticvalidity_XSDDatatypeCompatibleLiterals\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m \u003d 80\n\u001b[1m\u001b[34mavailability_Dereferenc..."
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594411897135_105143967",
+      "id": "20170731-101545_1335119985",
+      "dateCreated": "2020-07-10 20:11:37.135",
+      "dateStarted": "2020-07-10 20:26:46.107",
+      "dateFinished": "2020-07-10 20:27:10.606",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Tabular Data Quality Analysis",
+      "text": "case class Item(\r\nid: Long,\r\nproductName: String,\r\ndescription: String,\r\npriority: String,\r\nnumViews: Long\r\n)\r\n\r\nval rdd \u003d spark.sparkContext.parallelize(Seq(\r\nItem(1, \"Thingy A\", \"awesome thing.\", \"high\", 0),\r\nItem(2, \"Thingy B\", \"available at http://thingb.com\", null, 0),\r\nItem(3, null, null, \"low\", 5),\r\nItem(4, \"Thingy D\", \"checkout https://thingd.ca\", \"low\", 10),\r\nItem(5, \"Thingy E\", null, \"high\", 12)))\r\n\r\nval data \u003d spark.createDataFrame(rdd)\r\n\r\nimport com.amazon.deequ.VerificationSuite\r\nimport com.amazon.deequ.checks.{Check, CheckLevel, CheckStatus}\r\n\r\nval verificationResult \u003d VerificationSuite()\r\n.onData(data)\r\n.addCheck(\r\nCheck(CheckLevel.Error, \"unit testing my data\")\r\n.hasSize(_ \u003d\u003d 5) // we expect 5 rows\r\n.isComplete(\"id\") // should never be NULL\r\n.isUnique(\"id\") // should not contain duplicates\r\n.isComplete(\"productName\") // should never be NULL\r\n// should only contain the values \"high\" and \"low\"\r\n.isContainedIn(\"priority\", Array(\"high\", \"low\"))\r\n.isNonNegative(\"numViews\") // should not contain negative values\r\n// at least half of the descriptions should contain a url\r\n.containsURL(\"description\", _ \u003e\u003d 0.5)\r\n// half of the items should have less than 10 views\r\n.hasApproxQuantile(\"numViews\", 0.5, _ \u003c\u003d 10))\r\n.run()\r\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-10 20:27:31.795",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "defined class Item\n\u001b[1m\u001b[34mrdd\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[Item]\u001b[0m \u003d ParallelCollectionRDD[0] at parallelize at \u003cconsole\u003e:21\n\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m \u003d [id: bigint, productName: string ... 3 more fields]\nimport com.amazon.deequ.VerificationSuite\nimport com.amazon.deequ.checks.{Check, CheckLevel, CheckStatus}\n\u001b[1m\u001b[34mverificationResult\u001b[0m: \u001b[1m\u001b[32mcom.amazon.deequ.VerificationResult\u001b[0m \u003d VerificationResult(Error,Map(Check(Error,unit testing my data,List(SizeConstraint(Size(None)), CompletenessConstraint(Completeness(id,None)), UniquenessConstraint(Uniqueness(List(id),None)), CompletenessConstraint(Completeness(productName,None)), ComplianceConstraint(Compliance(priority contained in high,low,`priority` IS NULL OR `priority` IN (\u0027hig..."
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594411897135_1179422804",
+      "id": "20200709-224306_92191539",
+      "dateCreated": "2020-07-10 20:11:37.135",
+      "dateStarted": "2020-07-10 20:27:31.830",
+      "dateFinished": "2020-07-10 20:28:12.408",
+      "status": "FINISHED"
+    },
+    {
+      "text": "import com.amazon.deequ.constraints.ConstraintStatus\r\n\r\nif (verificationResult.status \u003d\u003d CheckStatus.Success) {\r\nprintln(\"The data passed the test, everything is fine!\\n\")\r\n} else {\r\nprintln(\"We found errors in the data:\\n\")\r\n\r\nval resultsForAllConstraints \u003d verificationResult.checkResults\r\n.flatMap { case (_, checkResult) \u003d\u003e checkResult.constraintResults }\r\n\r\nresultsForAllConstraints\r\n.filter { _.status !\u003d ConstraintStatus.Success }\r\n.foreach { result \u003d\u003e println(s\"${result.constraint}:${result.message.get}\") }\r\n}",
+      "user": "anonymous",
+      "dateUpdated": "2020-07-10 20:28:16.195",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "We found errors in the data:\n\nCompletenessConstraint(Completeness(productName,None)):Value: 0.8 does not meet the constraint requirement!\ncontainsURL(description):Value: 0.4 does not meet the constraint requirement!\nimport com.amazon.deequ.constraints.ConstraintStatus\n"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594412300774_1427449047",
+      "id": "paragraph_1594412300774_1427449047",
+      "dateCreated": "2020-07-10 20:18:20.774",
+      "dateStarted": "2020-07-10 20:28:16.220",
+      "dateFinished": "2020-07-10 20:28:16.991",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1594412896217_-711948210",
+      "id": "paragraph_1594412896217_-711948210",
+      "dateCreated": "2020-07-10 20:28:16.217",
+      "status": "READY"
+    }
+  ],
+  "name": "Data Quality",
+  "id": "2FDUAT44K",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
