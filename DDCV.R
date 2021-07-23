@@ -12,15 +12,15 @@ is.installed.github <- function(mypkg,gsource) {
 
 
 ## check if package is installed 
-is.installed("devtools")
-is.installed("shiny")
-is.installed("ggplot2")
-is.installed("gplots")
-is.installed("reshape2")
-is.installed("lattice")
-is.installed("plyr")
-is.installed("scatterplot3d")
-is.installed("shinythemes")
+# is.installed("devtools")
+# is.installed("shiny")
+# is.installed("ggplot2")
+# is.installed("gplots")
+# is.installed("reshape2")
+# is.installed("lattice")
+# is.installed("plyr")
+# is.installed("scatterplot3d")
+# is.installed("shinythemes")
 #is.installed.github("shiny-incubator", "rstudio")
 
 ## Run shiny 
